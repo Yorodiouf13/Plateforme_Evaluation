@@ -1,0 +1,190 @@
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #2A9D8F 0%, #34C759 100%);
+    color: #FFFFFF;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.navbar-right button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-right .app-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    transition: color 0.3s ease;
+}
+
+.navbar-right button:hover .app-name {
+    color: #E6F4EA;
+}
+
+/* General Layout */
+body {
+    margin-top: 70px; /* Ajusté pour navbar fixe */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #F7F7F7 0%, #E6F4EA 100%);
+    min-height: 100vh;
+}
+
+.submissions-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 90px auto 20px; /* Ajusté pour navbar */
+    animation: fadeIn 0.6s ease-out;
+}
+
+.submission-card {
+    background: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.submission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 1rem;
+    color: #333333;
+    margin-bottom: 0.75rem;
+}
+
+p strong {
+    font-weight: 600;
+    color: #2A9D8F;
+}
+
+a {
+    color: #34C759;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2A9D8F;
+    text-decoration: underline;
+}
+
+.no-submissions {
+    text-align: center;
+    padding: 2rem;
+    background: #E6F4EA;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    font-size: 1.25rem;
+    color: #333333;
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar-left {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .nav-btn {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .navbar-right .app-name {
+        font-size: 1.125rem;
+    }
+
+    .submissions-container {
+        padding: 1.5rem;
+        margin: 80px auto 10px;
+    }
+
+    .submission-card {
+        padding: 1rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .no-submissions {
+        font-size: 1.125rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .submissions-container {
+        padding: 1rem;
+    }
+
+    .submission-card {
+        padding: 0.75rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+
+    .no-submissions {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+}

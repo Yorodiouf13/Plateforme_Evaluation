@@ -78,11 +78,12 @@ export class ClassesComponent {
   async loadClasses() {
     const querySnapshot = await getDocs(collection(this.firestore, 'classes'));
     this.classes = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    console.log("Classes rechargées :", this.classes); // Vérifie le contenu dans la console
   }
 
   showClassForm() {
     this.isAddingClass = true;
-    this.classLink = `https://monapplication.com/inscription/${uuidv4()}`; 
+    this.classLink = `https://piee.com/register/${uuidv4()}`; 
   }
 
   cancelClassForm() {
@@ -94,7 +95,8 @@ export class ClassesComponent {
     if (this.newClass.name) {
       const newClass = { name: this.newClass.name, students: [], link: this.classLink };
       await addDoc(collection(this.firestore, 'classes'), newClass);
-      this.loadClasses();
+
+      await this.loadClasses();
       this.cancelClassForm();
     }
   }
@@ -113,7 +115,7 @@ export class ClassesComponent {
   // }
 
   async generateInviteLink(classId: string) {
-    const inviteLink = `https://mon-site.com/join/${classId}`;
+    const inviteLink = `https://piee.com/join/${classId}`;
     await updateDoc(doc(this.firestore, 'classes', classId), { inviteLink });
     this.classes.find(c => c.id === classId)!.inviteLink = inviteLink;
   }
@@ -154,6 +156,8 @@ export class ClassesComponent {
     onClassDetails(): void {
       this.router.navigate(['professeur/correction']);
     }
+
+    
 
 }
 // Removed the incorrect getDocs function definition

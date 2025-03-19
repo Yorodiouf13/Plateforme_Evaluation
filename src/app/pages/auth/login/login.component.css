@@ -1,91 +1,219 @@
-
+/* Palette de couleurs */
 .container {
-    @apply flex justify-center items-center min-h-screen bg-gray-100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(135deg, #F7F7F7 0%, #E6F4EA 100%);
+  overflow: hidden;
+}
+
+.login-box {
+  background: #FFFFFF;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  animation: slideUp 0.6s ease-out;
+  max-height: 80vh; 
+  overflow: auto; 
+}
+
+.login-box h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #34C759;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-box label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid #E6F4EA;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.login-box input[type="email"]:focus,
+.login-box input[type="password"]:focus {
+  border-color: #34C759;
+  box-shadow: 0 0 8px rgba(52, 199, 89, 0.3);
+  outline: none;
+}
+
+.login-box input[type="email"]::placeholder,
+.login-box input[type="password"]::placeholder {
+  color: #999999;
+}
+
+.login-box button[type="submit"] {
+  width: 100%;
+  padding: 0.9rem;
+  background: #34C759;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-box button[type="submit"]:hover:not(:disabled) {
+  background: #2A9D8F;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(42, 157, 143, 0.4);
+}
+
+.login-box button[type="submit"]:disabled {
+  background: #B3B3B3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.forgot-password a {
+  font-size: 0.85rem;
+  color: #34C759;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+  color: #2A9D8F;
+  text-decoration: underline;
+}
+
+.social-login {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-login button {
+  padding: 0.9rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #FFFFFF;
+}
+
+.social-login .google-button {
+  background: #DB4437; /* Rouge Google */
+}
+
+.social-login .google-button:hover {
+  background: #C1352F;
+  transform: scale(1.02);
+}
+
+.social-login button:not(.google-button) {
+  background: #333333; /* Noir GitHub */
+}
+
+.social-login button:not(.google-button):hover {
+  background: #4D4D4D;
+  transform: scale(1.02);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #333333;
+}
+
+.register-link a {
+  color: #34C759;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.register-link a:hover {
+  color: #2A9D8F;
+  text-decoration: underline;
+}
+
+/* Animation d'entrée */
+@keyframes slideUp {
+  from {
+      opacity: 0;
+      transform: translateY(50px);
   }
-  
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsivité */
+@media (max-width: 640px) {
   .login-box {
-    @apply bg-white p-8 rounded-lg shadow-lg w-full sm:w-96;
-  }
-  
-  h2 {
-    @apply text-2xl font-bold text-center mb-6 text-gray-800;
-  }
-  
-  label {
-    @apply block text-sm font-medium text-gray-600 mb-2;
-  }
-  
-  input[type="email"],
-  input[type="password"] {
-    @apply w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4;
-  }
-  
-  button[type="submit"],
-  button[type="button"] {
-    @apply w-full p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4;
-  }
-  
-  button:disabled {
-    @apply bg-gray-400 cursor-not-allowed;
-  }
-  
-  .forgot-password {
-    @apply text-sm text-blue-600 hover:text-blue-800 text-center mt-2;
-  }
-  
-  .social-login {
-    @apply flex justify-center items-center gap-4 mt-6;
-  }
-  
-  .social-button {
-    @apply p-3 rounded-lg shadow-md cursor-pointer;
-  }
-  
-  .social-button:hover {
-    @apply opacity-80;
-  }
-  
-  .google-button {
-    @apply bg-red-500 text-white;
+      padding: 1.5rem;
+      max-width: 90%;
   }
 
+  .login-box h2 {
+      font-size: 1.75rem;
+  }
+
+  .login-box input[type="email"],
+  .login-box input[type="password"],
+  .login-box button[type="submit"] {
+      padding: 0.75rem;
+      font-size: 0.95rem;
+  }
+
+  .social-login button {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+      padding: 1rem;
+  }
+
+  .login-box h2 {
+      font-size: 1.5rem;
+  }
+
+  .forgot-password a,
   .register-link {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
+      font-size: 0.8rem;
   }
-  
-  .register-link a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-     cursor: pointer;
-  }
-  
-  .register-link a:hover {
-    text-decoration: underline;
-  }
-  
-  
-  /* Media Queries pour la réactivité */
-  @media (max-width: 640px) {
-    .login-box {
-      @apply p-6;
-    }
-  
-    h2 {
-      @apply text-xl;
-    }
-  
-    input[type="email"],
-    input[type="password"] {
-      @apply p-2;
-    }
-  
-    button[type="submit"],
-    button[type="button"] {
-      @apply p-2;
-    }
-  }
-  
-  
+}

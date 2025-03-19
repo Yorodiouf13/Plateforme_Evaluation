@@ -24,7 +24,7 @@ export class ProfesseurComponent implements OnInit {
   exams: any[] = [];
   submissions: any[] = [];
   selectedExamId: string = '';
-  user: any = null;
+  user: any;
 
   // ngAfterViewInit(): void {
     

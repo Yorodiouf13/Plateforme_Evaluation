@@ -1,109 +1,212 @@
-/* Global Styles for Navbar */
+/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2f3b52;
-  color: white;
-  padding: 10px 20px;
+  background: linear-gradient(90deg, #2A9D8F 0%, #34C759 100%);
+  color: #FFFFFF;
+  padding: 15px 30px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-left {
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .nav-btn {
   background: none;
   border: none;
-  color: white;
-  font-size: 16px;
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.navbar-right button {
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
 .navbar-right .app-name {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  transition: color 0.3s ease;
 }
 
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
+.navbar-right button:hover .app-name {
+  color: #E6F4EA;
 }
 
 /* General Padding Adjustment */
 body {
-  margin-top: 60px; /* Adjusted for fixed navbar */
+  margin-top: 70px; /* Adjusted for fixed navbar */
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  background-color: #f4f7fc;
+  background-color: #F7F7F7;
 }
 
-/* Responsive Layout */
-@media (max-width: 768px) {
-  .navbar-left {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .navbar-right {
-    margin-top: 10px;
-  }
-}
-
-
+/* Dashboard Container */
 .dashboard-container {
-  margin: 70px auto;
+  margin: 90px auto 20px;
   max-width: 1200px;
+  padding: 25px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.dashboard-card {
   padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #2f3b52;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #34C759;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .dashboard-subtitle {
-  font-size: 18px;
-  color: #7d8a97;
+  font-size: 1.125rem;
+  color: #333333;
   margin-bottom: 30px;
+  font-style: italic;
 }
 
 .chart-container {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #E6F4EA;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.chart-container:hover {
+  transform: scale(1.02);
 }
 
 .chart-title {
-  font-size: 22px;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #3c4d63;
-  margin-bottom: 10px;
+  color: #2A9D8F;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .navbar {
+      padding: 10px 15px;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .navbar-left {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+  }
+
+  .nav-btn {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+  }
+
+  .navbar-right .app-name {
+      font-size: 1.125rem;
+  }
+
   .dashboard-container {
-    padding: 10px;
+      margin: 80px auto 10px;
+      padding: 15px;
+  }
+
+  .dashboard-title {
+      font-size: 1.75rem;
+  }
+
+  .dashboard-subtitle {
+      font-size: 1rem;
+  }
+
+  .chart-container {
+      padding: 15px;
   }
 
   .chart-title {
-    font-size: 20px;
+      font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-left {
+      gap: 5px;
+  }
+
+  .nav-btn {
+      font-size: 0.85rem;
+      padding: 5px 10px;
+  }
+
+  .dashboard-container {
+      padding: 10px;
+  }
+
+  .dashboard-title {
+      font-size: 1.5rem;
+  }
+
+  .dashboard-subtitle {
+      font-size: 0.875rem;
+  }
+
+  .chart-container {
+      padding: 10px;
+  }
+
+  .chart-title {
+      font-size: 1.125rem;
   }
 }

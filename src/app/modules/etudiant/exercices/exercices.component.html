@@ -1,4 +1,5 @@
 
+<body>
 <div class="navbar">
   <div class="navbar-left">
     <button (click)="onPerformance()" class="nav-btn">Performance</button>
@@ -12,10 +13,10 @@
   </div>
   </div>
 
-<body class="dashboard-container">
+<div class="dashboard-container">
   <div class="p-6" class="dashboard-container">
 
-    <h1 class="text-2xl font-bold mb-4" class="dashboard-title">📚 Exercices Disponibles</h1>
+    <h1 class="text-2xl font-bold mb-4" class="dashboard-title">Exercices Disponibles</h1>
   
     <!-- 📌 Liste des sujets sous forme de cartes -->
     <div class="grid grid-cols-3 gap-4">
@@ -34,16 +35,16 @@
   
     <!-- 📌 Affichage des détails du sujet sélectionné -->
     <div *ngIf="selectedExercice" class="mt-6 p-4 border rounded-lg bg-gray-50">
-      <h2 class="text-xl font-semibold">📄 Détails du sujet</h2>
+      <h2 class="text-xl font-semibold"> Détails du sujet</h2>
       <p><strong>Titre :</strong> {{ selectedExercice.titre }}</p>
       <p><strong>Date :</strong> {{ selectedExercice.date }}</p>
       <p><strong>Corrigé :</strong> {{ selectedExercice.corrige ? 'Oui' : 'Non' }}</p>
       
       <!-- Bouton de téléchargement -->
       <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-        📥 Télécharger le sujet
+         Télécharger le sujet
       </button>
     </div>
 </div>
   
-</body>
+</div>

@@ -15,16 +15,21 @@
 
 
 
-<div class="class-details-container">
+<div class="correction-container">
+  <h2>Gestion des corrections</h2>
 
-    <h1 class="title">📖 Classe : {{ className }}</h1>
-  
-    <p><strong>Lien d'invitation :</strong> <span>{{ inviteLink }}</span></p>
-    <button (click)="copyInviteLink()" class="btn-primary">📋 Copier le lien</button>
-  
-    <h2>👨‍🎓 Étudiants inscrits</h2>
-    <ul>
-      <li *ngFor="let student of students">{{ student.name }} ({{ student.email }})</li>
-    </ul>
-  </div>
-  
+  <form [formGroup]="correctionForm" (ngSubmit)="submitCorrection()">
+    <textarea formControlName="texteCorrection" placeholder="Entrez une correction"></textarea>
+    <input type="file" (change)="onFileSelected($event)">
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <h3>Corrections existantes :</h3>
+  <ul>
+    <li *ngFor="let correction of corrections">
+      <p>{{ correction.texte }}</p>
+      <a [href]="correction.fileUrl" target="_blank">Voir le fichier PDF</a>
+      <button class="delete-btn" (click)="deleteCorrection(correction.id)">Supprimer</button>
+    </li>
+  </ul>
+</div>

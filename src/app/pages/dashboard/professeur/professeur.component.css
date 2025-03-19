@@ -1,148 +1,265 @@
-.dashboard-container {
-    min-height: 100vh;
-    background-color: #f3f4f6;
-    padding: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .dashboard-card {
-    max-width: 800px;
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .dashboard-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .dashboard-subtitle {
-    font-size: 16px;
-    color: #666;
-    margin-top: 8px;
-  }
-  
-  /* Statistiques */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-top: 24px;
-  }
-  
-  .stat-box {
-    padding: 16px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .stat-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #222;
-  }
-  
-  .stat-value {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 8px;
-  }
-  
-  .stat-blue {
-    background: #eaf2ff;
-    color: #1e3a8a;
-  }
-  
-  .stat-green {
-    background: #e6ffed;
-    color: #065f46;
-  }
-  
-  .stat-yellow {
-    background: #fff9c4;
-    color: #9c6005;
-  }
-  
-  /* Graphique */
-  .trend-chart {
-    background: #f5e8ff;
-  }
+/* General Layout */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #F7F7F7;
+}
 
-  /* .navbar {
-    width: 100%;
-    background-color: #4caf50; 
-    padding: 10px 0;
-    text-align: center;
-    margin-bottom: 20px; 
-  }
-  
-  .navbar-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .navbar-link {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  .navbar-link:hover {
-    color: #e8f5e9; 
-  } */
-
-/* Navbar */
+/* Navbar (si présente dans un composant partagé) */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2f3b52;
-  color: white;
-  padding: 10px 20px;
+  background: linear-gradient(90deg, #2A9D8F 0%, #34C759 100%);
+  color: #FFFFFF;
+  padding: 15px 30px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 .navbar-left {
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
+
 .nav-btn {
   background: none;
   border: none;
-  color: white;
-  font-size: 16px;
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-}
-.navbar-right .app-name {
-  font-size: 20px;
-  font-weight: bold;
-}
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
+  padding: 8px 16px;
   border-radius: 5px;
-  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
-  
+
+.navbar-right .app-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  transition: color 0.3s ease;
+}
+
+.navbar-right button:hover .app-name {
+  color: #E6F4EA;
+}
+
+/* Dashboard Content */
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F7F7F7 0%, #E6F4EA 100%);
+  padding: 80px 20px 20px; /* Ajusté pour navbar fixe */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dashboard-card {
+  max-width: 900px;
+  width: 100%;
+  background: #FFFFFF;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #34C759;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1rem;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2A9D8F;
+  margin: 30px 0 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #E6F4EA;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #FFFFFF;
+  color: #333333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+select:focus {
+  border-color: #34C759;
+  box-shadow: 0 0 8px rgba(52, 199, 89, 0.3);
+  outline: none;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2A9D8F;
+  margin: 20px 0 15px;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #E6F4EA;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background: #34C759;
+  color: #FFFFFF;
+}
+
+th {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #E6F4EA;
+  transition: background 0.3s ease;
+}
+
+tbody tr:hover {
+  background: #D8EFE8;
+}
+
+td {
+  padding: 12px;
+  font-size: 0.95rem;
+  color: #333333;
+}
+
+td a {
+  color: #34C759;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+td a:hover {
+  color: #2A9D8F;
+  text-decoration: underline;
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .dashboard-card {
+      padding: 20px;
+      max-width: 100%;
+  }
+
+  h1 {
+      font-size: 1.75rem;
+  }
+
+  h2 {
+      font-size: 1.5rem;
+  }
+
+  h3 {
+      font-size: 1.25rem;
+  }
+
+  select {
+      padding: 10px;
+      font-size: 0.95rem;
+  }
+
+  th, td {
+      padding: 10px;
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+      padding: 70px 10px 10px;
+  }
+
+  .dashboard-card {
+      padding: 15px;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  p {
+      font-size: 0.875rem;
+  }
+
+  h2 {
+      font-size: 1.25rem;
+  }
+
+  h3 {
+      font-size: 1.125rem;
+  }
+
+  select {
+      padding: 8px;
+      font-size: 0.9rem;
+  }
+
+  table {
+      display: block;
+      overflow-x: auto;
+  }
+
+  th, td {
+      padding: 8px;
+      font-size: 0.85rem;
+  }
+}

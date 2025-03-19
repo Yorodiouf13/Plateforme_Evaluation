@@ -1,128 +1,266 @@
-/* Global Styles for Navbar */
+/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2f3b52;
-  color: white;
-  padding: 10px 20px;
+  background: linear-gradient(90deg, #2A9D8F 0%, #34C759 100%);
+  color: #FFFFFF;
+  padding: 15px 30px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-left {
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .nav-btn {
   background: none;
   border: none;
-  color: white;
-  font-size: 16px;
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.navbar-right button {
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
 .navbar-right .app-name {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  transition: color 0.3s ease;
 }
 
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.navbar-right button:hover .app-name {
+  color: #E6F4EA;
 }
 
-button:hover {
-  background-color: #45a049;
-}
-
-/* General Padding Adjustment */
+/* General Layout */
 body {
-  margin-top: 60px; /* Adjusted for fixed navbar */
+  margin-top: 70px; /* Ajusté pour navbar fixe */
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  background-color: #f4f7fc;
+  background: linear-gradient(135deg, #F7F7F7 0%, #E6F4EA 100%);
+  min-height: 100vh;
 }
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-  .navbar-left {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .navbar-right {
-    margin-top: 10px;
-  }
-}
-
 
 .p-6 {
-  padding: 200px;
+  padding: 2rem; /* Réduit de 200px à une valeur raisonnable */
+  max-width: 800px;
+  margin: 90px auto 20px; /* Ajusté pour navbar */
+  animation: fadeIn 0.6s ease-out;
 }
 
-.text-2xl {
-  font-size: 24px;
-  font-weight: bold;
-  color: #2f3b52;
-  margin-bottom: 20px;
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #34C759;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+/* Drag & Drop Zone */
 .border-dashed {
   border-style: dashed;
-}
-
-.border-2 {
   border-width: 2px;
-}
-
-.border-gray-400 {
-  border-color: #cbd5e0;
-}
-
-.p-6 {
-  padding: 30px;
-}
-
-.text-center {
+  border-color: #E6F4EA;
+  padding: 2rem;
+  border-radius: 12px;
   text-align: center;
+  background: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-.cursor-pointer {
+.border-dashed:hover {
+  border-color: #34C759;
+  box-shadow: 0 6px 15px rgba(52, 199, 89, 0.2);
+}
+
+.border-dashed p {
+  font-size: 1rem;
+  color: #333333;
+  margin-bottom: 0.75rem;
+}
+
+.border-dashed label {
+  color: #34C759;
+  font-weight: 500;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.text-blue-600 {
-  color: #3182ce;
+.border-dashed label:hover {
+  color: #2A9D8F;
+  text-decoration: underline;
 }
 
-.bg-green-500 {
-  background-color: #38a169;
+input[type="file"] {
+  display: none;
 }
 
-.bg-green-600 {
-  background-color: #2f855a;
+/* File Preview */
+.mt-4 {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 2px solid #E6F4EA;
+  border-radius: 10px;
+  background: #F7F7F7;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.rounded-md {
-  border-radius: 6px;
+.mt-4 p {
+  font-size: 1rem;
+  color: #333333;
 }
 
-/* button {
-  padding: 12px 24px;
-  margin-top: 20px;
-  width: 100%;
-} */
+.mt-4 strong {
+  font-weight: 600;
+  color: #2A9D8F;
+}
 
+/* Error Message */
+.text-red-600 {
+  color: #DB4437;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+}
+
+/* Submit Button */
+button {
+  background: #34C759;
+  color: #FFFFFF;
+  padding: 0.75rem 2rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(52, 199, 89, 0.3);
+}
+
+button:hover:not(:disabled) {
+  background: #2A9D8F;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(42, 157, 143, 0.4);
+}
+
+button:disabled {
+  background: #B3B3B3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-  .text-2xl {
-    font-size: 20px;
+  .navbar {
+      padding: 10px 15px;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .navbar-left {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+  }
+
+  .nav-btn {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+  }
+
+  .navbar-right .app-name {
+      font-size: 1.125rem;
+  }
+
+  .p-6 {
+      padding: 1.5rem;
+      margin: 80px auto 10px;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  .border-dashed {
+      padding: 1.5rem;
+  }
+
+  .mt-4 {
+      padding: 1rem;
+  }
+
+  button {
+      padding: 0.6rem 1.5rem;
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .p-6 {
+      padding: 1rem;
+  }
+
+  h1 {
+      font-size: 1.25rem;
+  }
+
+  .border-dashed {
+      padding: 1rem;
+  }
+
+  .border-dashed p {
+      font-size: 0.9rem;
+  }
+
+  .mt-4 {
+      padding: 0.75rem;
+  }
+
+  .mt-4 p {
+      font-size: 0.875rem;
+  }
+
+  .text-red-600 {
+      font-size: 0.875rem;
+  }
+
+  button {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.9rem;
   }
 }
