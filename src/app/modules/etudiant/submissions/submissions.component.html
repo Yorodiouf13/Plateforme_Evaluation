@@ -1,0 +1,32 @@
+
+
+
+
+
+<div class="navbar">
+    <div class="navbar-left">
+      <button (click)="onPerformance()" class="nav-btn">Performance</button>
+      <button (click)="onExercices()" class="nav-btn">Exercices</button>
+      <button (click)="onSubmit()" class="nav-btn">Soumettre</button>
+      <button (click)="onCorrection()" class="nav-btn">Corrections</button>
+    </div>
+  
+    <div class="navbar-right">
+      <button (click)="onHome()"><span class="app-name">Deconnexion</span></button>
+    </div>
+    </div>
+  
+
+
+
+
+<div *ngIf="submissions.length > 0">
+    <div *ngFor="let submission of submissions">
+      <p><strong>Note:</strong> {{ submission.grade }}</p>
+      <p><strong>Feedback:</strong> {{ submission.feedback }}</p>
+      <p><strong>Correction du fichier:</strong> <a [href]="submission.pdf_url" target="_blank">Voir PDF</a></p>
+    </div>
+  </div>
+  <div *ngIf="submissions.length === 0">
+    <p>Aucune soumission trouvée.</p>
+  </div>

@@ -1,0 +1,94 @@
+
+<!-- <div class="navbar">
+  <div class="navbar-left">
+    <button (click)="onDashboard()" class="nav-btn">Dashboard</button>
+    <button (click)="onClasses()" class="nav-btn">Gestion des Classes</button>
+    <button (click)="onSubject()" class="nav-btn">Gestion des Sujets</button>
+    <button (click)="onClassDetails()" class="nav-btn">Gestion des Correction</button>
+    <button (click)="onReviews()" class="nav-btn">Modéle IA</button>
+  </div>
+  <div class="navbar-right">
+    <button (click)="onHome()"><span class="app-name">Deconnexion</span></button>
+  </div>
+</div> -->
+
+
+<!-- <div class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Déposer un sujet d'examen par PDF</h2>
+  
+    <form (submit)="submitSujet()" class="space-y-4 bg-white p-6 shadow-lg rounded-lg">
+      <div>
+        <label class="block font-semibold mb-1">Titre du sujet :</label>
+        <input type="text" [(ngModel)]="titre" class="input-field" placeholder="Ex: Algèbre Linéaire" required />
+      </div>
+  
+      <div>
+        <label class="block font-semibold mb-1">Description :</label>
+        <textarea [(ngModel)]="description" class="input-field" placeholder="Brève description du sujet..." required></textarea>
+      </div>
+  
+      <div class="drag-drop-zone" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+        <p *ngIf="!fichier">Glissez-déposez un fichier PDF ici ou cliquez pour sélectionner</p>
+        <input type="file" (change)="onFileSelect($event)" class="hidden" accept=".pdf" />
+        <p *ngIf="fichier" class="file-preview">Fichier sélectionné : {{ fichier.name }}</p>
+      </div>
+  
+      <button type="submit" class="submit-button">Déposer le sujet</button>
+    </form>
+  </div> -->
+
+
+  <div>
+    <h2>Déposer un sujet d'examen par PDF</h2>
+    <form (ngSubmit)="addExam()">
+      <label for="titre">Titre de l'examen</label>
+      <input type="text" id="titre" [(ngModel)]="titre" name="titre" required>
+  
+      <label for="description">Description de l'examen</label>
+      <textarea id="description" [(ngModel)]="description" name="description" required></textarea>
+  
+      <label for="file">Téléverser un fichier PDF</label>
+      <input type="file" id="file" (change)="onFileSelected($event)" accept=".pdf">
+  
+      <button type="submit">Déposer</button>
+    </form>
+  </div>
+  
+  <div *ngIf="exams.length > 0">
+    <h3>Liste des examens</h3>
+    <ul>
+      <li *ngFor="let exam of exams">
+        <p><strong>{{ exam.title }}</strong></p>
+        <p>{{ exam.description }}</p>
+        <p *ngIf="exam.questions.length > 0">
+          <a [href]="exam.questions[0].file_url" target="_blank">Voir le fichier PDF</a>
+        </p>
+      </li>
+    </ul>
+  </div>
+  
+
+
+  <div>
+    <h2>Déposer un sujet d'examen directement</h2>
+    <form (ngSubmit)="addExam()">
+      <label for="titre">Titre de l'examen</label>
+      <input type="text" id="titre" [(ngModel)]="titre" name="titre" required>
+  
+      <label for="description">Description de l'examen</label>
+      <textarea id="description" [(ngModel)]="description" name="description" required></textarea>
+  
+      <button type="submit">Déposer</button>
+    </form>
+  </div>
+  
+  <div *ngIf="exams.length > 0">
+    <h3>Liste des examens</h3>
+    <ul>
+      <li *ngFor="let exam of exams">
+        <p><strong>{{ exam.title }}</strong></p>
+        <p>{{ exam.description }}</p>
+      </li>
+    </ul> 
+  </div>
+  

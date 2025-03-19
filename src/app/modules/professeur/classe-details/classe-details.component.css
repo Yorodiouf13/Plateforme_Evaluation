@@ -1,0 +1,62 @@
+.container {
+  @apply max-w-4xl mx-auto;
+}
+
+.correction-card {
+  @apply bg-white p-6 shadow-lg rounded-lg mb-6 border border-gray-200;
+}
+
+.correction-card h3 {
+  @apply text-lg font-bold;
+}
+
+.input-field {
+  @apply w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.submit-button {
+  @apply bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f3b52;
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.navbar-left {
+  display: flex;
+  gap: 15px;
+}
+.nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.navbar-right .app-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+  

@@ -1,0 +1,91 @@
+
+<!-- <div class="navbar">
+  <div class="navbar-left">
+    <button (click)="onDashboard()" class="nav-btn">Dashboard</button>
+    <button (click)="onClasses()" class="nav-btn">Gestion des Classes</button>
+    <button (click)="onSubject()" class="nav-btn">Gestion des Sujets</button>
+    <button (click)="onClassDetails()" class="nav-btn">Gestion des Correction</button>
+    <button (click)="onReviews()" class="nav-btn">Modéle IA</button>
+  </div>
+  <div class="navbar-right">
+    <button (click)="onHome()"><span class="app-name">Deconnexion</span></button>
+  </div>
+</div> -->
+
+
+<div class="dashboard-container">
+
+  <!-- <nav class="navbar">
+    <ul class="navbar-list">
+      <li><button (click)="onReviews()" class="navbar-link">Gestion des Avis</button></li>
+      <li><button (click)="onSubject()" class="navbar-link">Gestion des Sujets</button></li>
+    </ul>
+  </nav> -->
+
+   <!-- Sidebar -->
+
+
+  <!-- <div class="dashboard-card">
+    <h1 class="dashboard-title">📊 Tableau de bord professeur</h1>
+    <p class="dashboard-subtitle">Analysez les performances des étudiants et adaptez vos exercices.</p>
+
+    
+    <div class="stats-grid">
+      <div class="stat-box stat-blue">
+        <h2 class="stat-title">📄 Soumissions</h2>
+        <p class="stat-value">120</p>
+        <canvas id="submissionChart"></canvas>
+      </div>
+      <div class="stat-box stat-green">
+        <h2 class="stat-title">✅ Taux de réussite</h2>
+        <p class="stat-value">85%</p>
+      </div>
+      <div class="stat-box stat-yellow">
+        <h2 class="stat-title">⚠️ Questions mal comprises</h2>
+        <p class="stat-value">8</p>
+        <canvas id="incorrectQuestionsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-container trend-chart">
+      <h2 class="chart-title">📊 Tendances d'apprentissage</h2>
+      <canvas id="trendChart"></canvas>
+    </div>
+  </div>
+</div> -->
+
+<div *ngIf="user">
+
+  <h1>Bienvenue, {{ user.displayName }} !</h1>
+  <p>Email : {{ user.email }}</p>
+  <p>Rôle : {{ user.role }}</p>
+  
+  <h2>Tableau de bord Professeur</h2>
+
+  <label for="selectedExamId">Sélectionner un examen</label>
+  <select id="selectedExamId" [(ngModel)]="selectedExamId" name="selectedExamId" required (change)="loadSubmissions()">
+    <option *ngFor="let exam of exams" [value]="exam.id">{{ exam.title }}</option>
+  </select>
+
+  <div *ngIf="submissions.length > 0">
+    <h3>Soumissions pour l'examen</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom de l'étudiant</th>
+          <th>Fichier soumis</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let submission of submissions">
+          <td>{{ submission.student_id }}</td>
+          <td><a [href]="submission.file_url" target="_blank">Voir le fichier</a></td>
+          <td>{{ submission.grade || 'Non notée' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

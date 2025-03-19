@@ -1,0 +1,49 @@
+
+<div class="navbar">
+  <div class="navbar-left">
+    <button (click)="onPerformance()" class="nav-btn">Performance</button>
+    <button (click)="onExercices()" class="nav-btn">Exercices</button>
+    <button (click)="onSubmit()" class="nav-btn">Soumettre</button>
+    <button (click)="onCorrection()" class="nav-btn">Corrections</button>
+  </div>
+
+  <div class="navbar-right">
+    <button (click)="onHome()"><span class="app-name">Deconnexion</span></button>
+  </div>
+  </div>
+
+<body class="dashboard-container">
+  <div class="p-6" class="dashboard-container">
+
+    <h1 class="text-2xl font-bold mb-4" class="dashboard-title">📚 Exercices Disponibles</h1>
+  
+    <!-- 📌 Liste des sujets sous forme de cartes -->
+    <div class="grid grid-cols-3 gap-4">
+      <div *ngFor="let exercice of exercices" 
+           class="bg-white shadow-lg rounded-lg p-4 cursor-pointer hover:bg-gray-100"
+           (click)="afficherDetails(exercice)">
+        <h2 class="text-lg font-semibold">{{ exercice.titre }}</h2>
+        <p class="text-sm text-gray-600">🗓 Date : {{ exercice.date }}</p>
+        <p class="text-sm font-medium"
+           [class.text-green-600]="exercice.corrige"
+           [class.text-red-600]="!exercice.corrige">
+          ✅ Corrigé : {{ exercice.corrige ? 'Oui' : 'Non' }}
+        </p>
+      </div>
+    </div>
+  
+    <!-- 📌 Affichage des détails du sujet sélectionné -->
+    <div *ngIf="selectedExercice" class="mt-6 p-4 border rounded-lg bg-gray-50">
+      <h2 class="text-xl font-semibold">📄 Détails du sujet</h2>
+      <p><strong>Titre :</strong> {{ selectedExercice.titre }}</p>
+      <p><strong>Date :</strong> {{ selectedExercice.date }}</p>
+      <p><strong>Corrigé :</strong> {{ selectedExercice.corrige ? 'Oui' : 'Non' }}</p>
+      
+      <!-- Bouton de téléchargement -->
+      <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+        📥 Télécharger le sujet
+      </button>
+    </div>
+</div>
+  
+</body>

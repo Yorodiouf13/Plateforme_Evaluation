@@ -1,0 +1,104 @@
+/* Global Styles for Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f3b52;
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar-left {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.navbar-right .app-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* General Padding Adjustment */
+body {
+  margin-top: 60px; /* Adjusted for fixed navbar */
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f7fc;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .navbar-left {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .navbar-right {
+    margin-top: 10px;
+  }
+}
+
+
+.p-6 {
+  padding: 300px;
+}
+
+.text-2xl {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2f3b52;
+  margin-bottom: 20px;
+}
+
+canvas {
+  max-width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.mt-4 {
+  margin-top: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.text-red-600 {
+  color: #e53e3e;
+}
+
+.text-green-600 {
+  color: #38a169;
+}
+
+@media (max-width: 768px) {
+  .text-2xl {
+    font-size: 20px;
+  }
+}

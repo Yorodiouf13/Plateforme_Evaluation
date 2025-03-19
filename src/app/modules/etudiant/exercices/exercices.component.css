@@ -1,0 +1,166 @@
+/* Global Styles for Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f3b52;
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar-left {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.navbar-right .app-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* General Padding Adjustment */
+body {
+  margin-top: 200px; /* Adjusted for fixed navbar */
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f7fc;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .navbar-left {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .navbar-right {
+    margin-top: 10px;
+  }
+}
+
+
+.p-6 {
+  padding: 700px;
+  background-color: #f4f7fc;
+}
+
+.text-2xl {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2f3b52;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.shadow-lg {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-lg {
+  border-radius: 8px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-lg {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.text-gray-600 {
+  color: #718096;
+}
+
+.text-sm {
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.text-green-600 {
+  color: #38a169;
+}
+
+.text-red-600 {
+  color: #e53e3e;
+}
+
+.bg-gray-50 {
+  background-color: #f7fafc;
+}
+
+.bg-gray-100 {
+  background-color: #edf2f7;
+}
+
+.mt-6 {
+  margin-top: 24px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+/* button {
+  padding: 12px 24px;
+  background-color: #4299e1;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3182ce;
+} */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .text-2xl {
+    font-size: 70px;
+  }
+
+  .text-lg {
+    font-size: 16px;
+  }
+  
+}

@@ -1,0 +1,37 @@
+
+<div class="navbar">
+  <div class="navbar-left">
+    <button (click)="onPerformance()" class="nav-btn">Performance</button>
+    <button (click)="onExercices()" class="nav-btn">Exercices</button>
+    <button (click)="onSubmit()" class="nav-btn">Soumettre</button>
+    <button (click)="onCorrection()" class="nav-btn">Corrections</button>
+  </div>
+
+  <div class="navbar-right">
+    <button (click)="onHome()"><span class="app-name">Deconnexion</span></button>
+  </div>
+  </div>
+
+<!-- 
+<div class="p-6">
+  
+    <h1 class="text-2xl font-bold mb-4">Suivi de mes performances</h1>
+  
+    <canvas id="performanceChart"></canvas>
+  
+    <div class="mt-4">
+      <p>⭐ Meilleure note : <strong>18/20</strong></p>
+      <p>⚠️ Pire note : <strong>14/20</strong></p>
+    </div>
+  </div> -->
+  <div *ngIf="user">
+    <h2>Bienvenue, {{ user.displayName }} !</h2>
+    <p>Email : {{ user.email }}</p>
+    <p>Rôle : {{ user.role }}</p>
+  
+    <h3>Tableau de bord étudiant</h3>
+
+    <canvas id="canvas"></canvas>
+  </div>
+  
+  

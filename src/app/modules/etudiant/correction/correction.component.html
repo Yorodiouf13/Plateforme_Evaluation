@@ -1,0 +1,27 @@
+<div class="navbar">
+    <div class="navbar-left">
+      <button (click)="onPerformance()" class="nav-btn">Performance</button>
+      <button (click)="onExercices()" class="nav-btn">Exercices</button>
+      <button (click)="onSubmit()" class="nav-btn">Soumettre</button>
+      <button (click)="onCorrection()" class="nav-btn">Corrections</button>
+    </div>
+  
+    <div class="navbar-right">
+      <button (click)="onHome()"><span class="app-name">Deconnexion</span></button>
+    </div>
+    </div>
+
+    <div class="p-6">
+        <h1 class="text-2xl font-bold mb-4">📑 Corrections reçues</h1>
+      
+        <div *ngFor="let correction of corrections" class="bg-white shadow-md p-4 rounded-lg mb-4">
+          <h2 class="text-lg font-semibold">📄 Sujet : {{ correction.sujet }}</h2>
+          <p class="text-green-600 font-bold">⭐ Note : {{ correction.note }}/20</p>
+          <p class="text-gray-700"><strong>💬 Commentaires :</strong> {{ correction.commentaires }}</p>
+      
+          <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+            📥 Télécharger la correction
+          </button>
+        </div>
+      </div>
+      

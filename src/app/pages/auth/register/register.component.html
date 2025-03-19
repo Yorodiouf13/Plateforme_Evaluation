@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="register-box">
+      <h2>Créer un compte</h2>
+  
+      <form (ngSubmit)="onRegister()">
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" [(ngModel)]="name" name="name" required placeholder="Entrez votre nom complet" />
+  
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" required placeholder="Entrez votre email" />
+  
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Entrez votre mot de passe" />
+  
+        <label for="confirmPassword">Confirmer le mot de passe</label>
+        <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required placeholder="Confirmer votre mot de passe" />
+
+        <label for="role" class="block text-sm font-medium text-gray-700">Rôle :
+          <select id="role" [(ngModel)]="role" name="role" required class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          <option value="professeur">Professeur</option>
+          <option value="etudiant">Étudiant</option>
+          </select>
+        </label>
+  
+        <button type="submit" [disabled]="!email || !password || password !== confirmPassword">S'inscrire</button>
+
+      </form>
+  
+      <p class="login-link">
+        Vous avez déjà un compte ? <a (click)="onLogin()">Se connecter</a>
+      </p>
+  
+      <div class="social-login">
+        <button class="social-button google-button" (click)="onGoogleSignUp()">
+          S'inscrire avec Google
+        </button>
+      </div>
+    </div>
+  </div>
+  

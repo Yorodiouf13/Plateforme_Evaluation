@@ -1,0 +1,91 @@
+
+.container {
+    @apply flex justify-center items-center min-h-screen bg-gray-100;
+  }
+  
+  .login-box {
+    @apply bg-white p-8 rounded-lg shadow-lg w-full sm:w-96;
+  }
+  
+  h2 {
+    @apply text-2xl font-bold text-center mb-6 text-gray-800;
+  }
+  
+  label {
+    @apply block text-sm font-medium text-gray-600 mb-2;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    @apply w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4;
+  }
+  
+  button[type="submit"],
+  button[type="button"] {
+    @apply w-full p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4;
+  }
+  
+  button:disabled {
+    @apply bg-gray-400 cursor-not-allowed;
+  }
+  
+  .forgot-password {
+    @apply text-sm text-blue-600 hover:text-blue-800 text-center mt-2;
+  }
+  
+  .social-login {
+    @apply flex justify-center items-center gap-4 mt-6;
+  }
+  
+  .social-button {
+    @apply p-3 rounded-lg shadow-md cursor-pointer;
+  }
+  
+  .social-button:hover {
+    @apply opacity-80;
+  }
+  
+  .google-button {
+    @apply bg-red-500 text-white;
+  }
+
+  .register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .register-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+     cursor: pointer;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  /* Media Queries pour la réactivité */
+  @media (max-width: 640px) {
+    .login-box {
+      @apply p-6;
+    }
+  
+    h2 {
+      @apply text-xl;
+    }
+  
+    input[type="email"],
+    input[type="password"] {
+      @apply p-2;
+    }
+  
+    button[type="submit"],
+    button[type="button"] {
+      @apply p-2;
+    }
+  }
+  
+  

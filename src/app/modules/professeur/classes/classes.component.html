@@ -1,0 +1,83 @@
+
+
+
+  <!-- <div class="classes-container"> -->
+
+    <!-- <div class="sidebar">
+        <h2 class="sidebar-title">Menu</h2>
+        <ul class="sidebar-list">
+          <li><button (click)="onDashboard()" class="sidebar-link">Dashboard</button></li>
+          <li><button (click)="onClasses()" class="sidebar-link">Gestion des Classes</button></li>
+          <li><button (click)="onSubject()" class="sidebar-link">Gestion des Sujets</button></li>
+          <li><button (click)="onReviews()" class="sidebar-link">Gestion des Avis</button></li>
+        </ul>
+      </div>
+       -->
+  <!-- Navbar en haut -->
+
+  <div class="navbar">
+    <div class="navbar-left">
+      <button (click)="onDashboard()" class="nav-btn">Dashboard</button>
+      <button (click)="onClasses()" class="nav-btn">Gestion des Classes</button>
+      <button (click)="onSubject()" class="nav-btn">Gestion des Sujets</button>
+      <button (click)="onClassDetails()" class="nav-btn">Gestion des Correction</button>
+      <button (click)="onReviews()" class="nav-btn">Modéle IA</button>
+    </div>
+    <div class="navbar-right">
+      <button (click)="onHome()"><span class="app-name">Deconnexion</span></button>
+    </div>
+  </div>
+
+<!-- Contenu principal -->
+<div class="classes-container">
+  <h1 class="page-title">Mes Classes</h1>
+
+  <!-- Si aucune classe n'est présente -->
+  <ng-container *ngIf="classes.length === 0; else classCards">
+    <div class="classes-grid">
+      <div class="class-card add-card" (click)="showClassForm()">
+        <h3 class="add-text">➕ Ajouter une classe</h3>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Affichage des cartes des classes -->
+  <ng-template #classCards>
+    <div class="classes-grid">
+      <div class="class-card" *ngFor="let classe of classes" (click)="selectClass(classe)">
+        <h3 class="class-name">{{ classe.name }}</h3>
+        <p class="class-info">
+          {{ classe.students?.length }} étudiants
+          <span *ngIf="classe.students?.length > 0"> - {{ classe.students[0].name }}</span>
+        </p>
+      </div>
+
+      <!-- Carte Ajouter une classe -->
+      <div class="class-card add-card" (click)="showClassForm()">
+        <h3 class="add-text">➕ Ajouter une classe</h3>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Formulaire d'ajout d'une classe -->
+  <div *ngIf="isAddingClass" class="class-form">
+    <h2>Ajouter une nouvelle classe</h2>
+    <label for="className">Nom de la classe:</label>
+    <input id="className" [(ngModel)]="newClass.name" placeholder="Nom de la classe" />
+    <div class="link-container">
+      <label for="classLink">Lien d'inscription:</label>
+      <input id="classLink" [value]="classLink" readonly />
+      <button (click)="copyLink()">Copier le lien</button>
+    </div>
+    <button (click)="addClass()">Ajouter la classe</button>
+    <button (click)="cancelClassForm()">Annuler</button>
+  </div>
+
+  <!-- Liste des étudiants dans la classe sélectionnée -->
+  <div *ngIf="selectedClass" class="students-section">
+    <h2>Étudiants de {{ selectedClass.name }}</h2>
+    <ul>
+      <li *ngFor="let student of selectedClass.students">{{ student.name }}</li>
+    </ul>
+  </div>
+</div>
